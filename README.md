@@ -1,19 +1,41 @@
-# html
-
-## Project setup
+## セットアップ
 ```
-npm install
+make install
 ```
 
-### Compiles and hot-reloads for development
+## ローカルサーバ起動
 ```
-npm run serve
+make up
 ```
 
-### Compiles and minifies for production
+`localhost:8888`にアクセス
+
+## ビルド
 ```
+make build
+```
+
+## デプロイ
+1. appコンテナ起動
+```shell script
+docker-compose run --rm app sh
+```
+
+2. firebaseにログイン
+```shell script
+firebase login --no-localhost
+```
+
+3. ビルド
+```shell script
 npm run build
 ```
+
+4. デプロイ
+```shell script
+npm run deploy
+```
+
 
 ### Lints and fixes files
 ```
