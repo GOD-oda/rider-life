@@ -1,17 +1,15 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-
+    <h1>道の駅一覧</h1>
     <ul id="stations">
-      <li v-for="(station, key) in stations" :key="key">
-        {{ station.name }}
-      </li>
+      <station-card v-for="(station, key) in stations" :key="key" :station="station"/>
     </ul>
   </div>
 </template>
 
 <script>
 import firebase from '@/firebase/config'
+import StationCard from '@/components/StationCard.vue'
 
 const stationsRef = firebase.firestore().collection('stations')
 
@@ -21,6 +19,9 @@ export default {
     return {
       stations: []
     }
+  },
+  components: {
+    StationCard
   },
   created: function () {
     stationsRef.get().then((querySnapShot) => {
@@ -33,3 +34,26 @@ export default {
   }
 }
 </script>
+
+<style>
+  #stations {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1180px;
+    width: 100%;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin: 2em auto;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    list-style: none;
+  }
+  #stations::after {
+    content: "";
+    display: block;
+    width: calc(100% / 3);
+  }
+</style>
