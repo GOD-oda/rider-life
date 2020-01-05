@@ -1,18 +1,35 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <ul id="stations">
+      <li v-for="(station, key) in stations" :key="key">
+        {{ station.name }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import firebase from '@/firebase/config'
+
+const stationsRef = firebase.firestore().collection('stations')
 
 export default {
   name: 'home',
-  components: {
-    HelloWorld
+  data: function () {
+    return {
+      stations: []
+    }
+  },
+  created: function () {
+    stationsRef.get().then((querySnapShot) => {
+      querySnapShot.forEach((doc) => {
+        this.stations.push({
+          name: doc.data().name
+        })
+      })
+    })
   }
 }
 </script>
