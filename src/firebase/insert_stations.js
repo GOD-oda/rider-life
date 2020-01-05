@@ -13,10 +13,11 @@ for (let i = 0; i < stations.length; i++) {
   let d = new Date()
   let time = d.getTime();
   let params = {
+    stationId: stations[i]['id'],
     name: stations[i]['name'],
     createdAt: time,
     updatedAt: time
   }
 
-  stationsRef.doc('station_' + stations[i]['id']).set(params)
+  stationsRef.doc().set(params)
 }

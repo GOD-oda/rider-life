@@ -30,7 +30,8 @@ export default {
     // stationsRef.get().then((querySnapShot) => {
     //   querySnapShot.forEach((doc) => {
     //     this.stations.push({
-    //       name: doc.data().name
+    //       name: doc.data().name,
+    //       id: doc.data().stationId
     //     })
     //   })
     // })
