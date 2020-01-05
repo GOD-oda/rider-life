@@ -8,29 +8,32 @@
 </template>
 
 <script>
-import firebase from '@/firebase/config'
+// import firebase from '@/firebase/config'
 import StationCard from '@/components/StationCard.vue'
 
-const stationsRef = firebase.firestore().collection('stations')
+// const stationsRef = firebase.firestore().collection('stations')
+
+// 一時的に直接読み込んでいる
+const stations = require('@/firebase/data/stations.json')
 
 export default {
   name: 'home',
   data: function () {
     return {
-      stations: []
+      stations: stations
     }
   },
   components: {
     StationCard
   },
   created: function () {
-    stationsRef.get().then((querySnapShot) => {
-      querySnapShot.forEach((doc) => {
-        this.stations.push({
-          name: doc.data().name
-        })
-      })
-    })
+    // stationsRef.get().then((querySnapShot) => {
+    //   querySnapShot.forEach((doc) => {
+    //     this.stations.push({
+    //       name: doc.data().name
+    //     })
+    //   })
+    // })
   }
 }
 </script>
