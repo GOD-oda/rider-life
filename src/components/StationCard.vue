@@ -1,6 +1,8 @@
 <template>
   <li class="station-card">
-    {{ station.name }}
+    <router-link :to="{ name: 'stations', params: { id: station.id } }">
+      {{ station.name }}
+    </router-link>
   </li>
 </template>
 
