@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "rider-life"
+    "default": "rider-life",
+    "rider-life": "rider-life"
   }
 }
