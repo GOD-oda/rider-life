@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>道の駅一覧</h1>
+    <h1>道の駅一覧?</h1>
     <ul id="stations">
       <station-card v-for="(station, key) in stations" :key="key" :station="station"/>
     </ul>
