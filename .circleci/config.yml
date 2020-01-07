@@ -9,6 +9,9 @@ jobs:
           name: npm install
           command: npm ci
       - run:
+          name: install firebase-tools
+          command: npm install --save-dev firebase-tools
+      - run:
           name: npm build
           command: npm run build
       - run:
