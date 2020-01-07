@@ -10,7 +10,7 @@ jobs:
           command: npm ci
       - run:
           name: npm build
-          command: npm build
+          command: npm run build
       - run:
           name: deploy
           command: firebase deploy --token "$FIREBASE_TOKEN"
