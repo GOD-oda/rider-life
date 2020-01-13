@@ -38,7 +38,7 @@
 </template>
 
 <script>
-// import firebase from '@/firebase/config'
+import firebase from '@/firebase/config'
 
 export default {
   name: 'User',
@@ -57,10 +57,10 @@ export default {
     }
   },
   created: function () {
-    // const uid = this.$route.params.id
-    // firebase.firestore().collection('users').doc(uid).get().then(doc => {
-    //   this.name = doc.data().name
-    // })
+    const uid = this.$route.params.id
+    firebase.firestore().collection('users').doc(uid).get().then(doc => {
+      this.name = doc.data().name
+    })
   }
 }
 </script>
