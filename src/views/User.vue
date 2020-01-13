@@ -44,7 +44,7 @@ export default {
   name: 'User',
   data: function () {
     return {
-      name: '尾田',
+      name: '',
       bikes: [
         'NINJA 400',
         'GSX 1000R'
@@ -59,7 +59,10 @@ export default {
   created: function () {
     const uid = this.$route.params.id
     firebase.firestore().collection('users').doc(uid).get().then(doc => {
-      this.name = doc.data().name
+      const data = doc.data()
+      if (data !== 'undefined') {
+        this.name = data.name
+      }
     })
   }
 }
