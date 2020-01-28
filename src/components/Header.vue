@@ -38,9 +38,15 @@ export default {
   height: 56px;
   align-items: center;
 
-  #logo, #user-image {
+  #logo {
     img {
       vertical-align: middle;
+    }
+  }
+  #user-image {
+    img {
+      vertical-align: middle;
+      border-radius: 50%;
     }
   }
 }
