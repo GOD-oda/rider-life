@@ -3,8 +3,10 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Station from '../views/Station'
 import User from '../views/User'
+import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(VueRouter)
+Vue.use(BootstrapVue)
 
 const routes = [
   {

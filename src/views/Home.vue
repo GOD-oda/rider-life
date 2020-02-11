@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>道の駅一覧?</h1>
+    <h1>道の駅一覧</h1>
+    <button class="btn btn-primary">test</button>
     <ul id="stations">
       <station-card v-for="(station, key) in stations" :key="key" :station="station"/>
     </ul>
@@ -14,7 +15,8 @@ import StationCard from '@/components/StationCard.vue'
 // const stationsRef = firebase.firestore().collection('stations')
 
 // 一時的に直接読み込んでいる
-const stations = require('@/firebase/data/stations.json')
+
+const stations = require('@/firebase/data/old_stations.json')
 
 export default {
   name: 'home',
