@@ -1,9 +1,7 @@
 <template>
-  <li class="station-card">
-    <router-link :to="{ name: 'stations', params: { id: station.id } }">
+  <router-link :to="{ name: 'stations', params: { id: station.id } }" class="card">
       {{ station.name }}
-    </router-link>
-  </li>
+  </router-link>
 </template>
 
 <script>
@@ -19,15 +17,4 @@ export default {
 </script>
 
 <style scoped>
-  .station-card {
-    border: solid 1px;
-    margin: 10px auto;
-    padding: 5px;
-    width: 100%;
-  }
-  @media all and (min-width: 992px) {
-    .station-card {
-      width: calc(96% / 3);
-    }
-  }
 </style>
